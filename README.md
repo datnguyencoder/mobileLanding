@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DatDev Mobile — Next.js
 
-## Getting Started
+Prototype e-commerce điện thoại **chuẩn App Router** (TypeScript, Tailwind, GSAP, Phosphor).
 
-First, run the development server:
+Brand giữ editorial graphite / ivory / electric-lime từ bản HTML gốc. Demo data trong `src/data/catalog.ts`; giỏ / wishlist / đơn lưu `localStorage` qua Zustand.
+
+## Skills đã dùng
+
+- **ui-ux-pro-max** — design system tại `design-system/datdev-mobile/MASTER.md`
+- **gsap-*** — hero entrance + scroll stagger (`@gsap/react`, `ScrollTrigger`, `matchMedia` / reduced-motion)
+
+## Chạy
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000). Admin: `/admin`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cấu trúc
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/app/                 # App Router pages
+src/components/          # layout, product, cart, motion, admin
+src/data/catalog.ts      # seed products + posts
+src/store/shop-store.ts  # cart / wishlist / compare / orders
+public/assets/           # WebP từ prototype
+legacy/                  # HTML/CSS/JS gốc (reference)
+```
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Lệnh | Mô tả |
+|------|--------|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve build |
+| `npm run lint` | ESLint |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Giới hạn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Không phải cửa hàng thật: không API/DB/auth/payment. Xem `legacy/NEXTJS_MIGRATION.md` cho lộ trình production (Prisma, auth, checkout server-side).
